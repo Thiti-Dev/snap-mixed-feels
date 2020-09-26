@@ -4,6 +4,19 @@ import GlobalContext from '../../../../../contexts/GlobalContext'
 
 import styled from 'styled-components'
 
+//
+// ─── LOADING SPINNER ────────────────────────────────────────────────────────────
+//    
+import { css } from "@emotion/core";
+import {RingLoader} from "react-spinners";
+// ────────────────────────────────────────────────────────────────────────────────
+
+const override_loader_spinner_style = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+
 type CanvasProp = {
     bg_url: string | undefined
 }
@@ -31,9 +44,10 @@ export default function MainCanvas() {
     
     //destructure
     const {store} = CONTEXT_global
-    const {quote_data} = store || {};
+    const {quote_data,is_loading} = store || {};
     const {text,background_url} = quote_data || {}
     // ────────────────────────────────────────────────────────────────────────────────
+    if(is_loading) return <RingLoader css={override_loader_spinner_style}/>
     if(!text && !background_url) return null
     return (
         <div>
