@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 
+interface StoreProperties{
+    quote_data?: {text:string,background_url:string}
+}
+
 type ContextProps = { 
     settings: Object,
-    store: Object,
+    store: StoreProperties,
     setStore: (key:string,valuu:number|boolean|Object|any[])=> void
   };
   
