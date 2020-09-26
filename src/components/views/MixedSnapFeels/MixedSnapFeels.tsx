@@ -3,7 +3,7 @@ import {Textarea,Row,Col,TextInput} from 'react-materialize'
 import styles from './styles.module.scss'
 
 import GlobalContext from '../../../contexts/GlobalContext'
-import {InputField} from './wrappers'
+import {InputField,MainCanvas} from './wrappers'
 
 export default function MixedSnapFeels() {
   //Context importation
@@ -21,6 +21,7 @@ export default function MixedSnapFeels() {
     <div className={styles.container}>
       <div className={styles.text_area_holder}>
           <InputField/>
+          <MainCanvas/>
       </div>
     </div>
   )
