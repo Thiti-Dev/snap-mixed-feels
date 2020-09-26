@@ -5,7 +5,7 @@ import GlobalContext from '../../../../../contexts/GlobalContext';
 //
 // ─── API UTILS ────────────────────────────────────────────────────────────────────────
 //
-import { getQuotesByKeyword } from '../../../../../apis/quote-garden';
+import { getQuotesByKeyword, QuotesArray } from '../../../../../apis/quote-garden';
 import { getRandomBackgroundFromKeyword } from '../../../../../apis/unsplash';
 // ────────────────────────────────────────────────────────────────────────────────
 
@@ -50,10 +50,10 @@ export default function InputField() {
     // ─────────────────────────────────────────────────────────────────
 
     // Random one from above
-    const selected_quote = quoute_data![randomNumberBetween(0,quoute_data!.length)]
+    const selected_quote = quoute_data![randomNumberBetween(0, quoute_data!.length)] as unknown as QuotesArray // type conversion
     // ─────────────────────────────────────────────────────────────────
     console.log(selected_quote)
-    CONTEXT_global.setStore!('quote_data',{text:selected_quote,background_url:recieved_bg_path});
+    CONTEXT_global.setStore!('quote_data',{text:selected_quote.quoteText,background_url:recieved_bg_path});
     clearInputText() // clear input text after got the quote
   }
   // ────────────────────────────────────────────────────────────────────────────────
