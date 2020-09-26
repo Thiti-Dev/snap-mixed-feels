@@ -42,6 +42,10 @@ export default function InputField() {
 
   // API - RELATED
   async function fetchQuote(queries: string): Promise<void>{
+    //Set loading
+    CONTEXT_global.setStore!('is_loading',true);
+    // ─────────────────────────────────────────────────────────────────
+
     // Parallel
     const [quoute_data, recieved_bg_path] = await Promise.all([
       getQuotesByKeyword(queries),
@@ -55,6 +59,10 @@ export default function InputField() {
     console.log(selected_quote)
     CONTEXT_global.setStore!('quote_data',{text:selected_quote.quoteText,background_url:recieved_bg_path});
     clearInputText() // clear input text after got the quote
+
+    //Set loading
+    CONTEXT_global.setStore!('is_loading',false);
+    // ─────────────────────────────────────────────────────────────────
   }
   // ────────────────────────────────────────────────────────────────────────────────
 
