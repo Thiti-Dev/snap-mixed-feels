@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
 interface StoreProperties{
-    quote_data?: {text:string,background_url:string}
+    quote_data?: {text:string,background_url:string};
+    is_loading: boolean;
 }
 
 type ContextProps = { 
@@ -19,7 +20,9 @@ interface IGlobalProps{
 
 export function GlobalProvider({children}: IGlobalProps){
     const [settings,setSetting] = React.useState({lang:'th',debug:true})
-    const [globalStore,setGlobalStore] = React.useState({})
+    const [globalStore,setGlobalStore] = React.useState({
+        is_loading:false
+    })
 
     // Scoped
     function debugTrace(logStr:string):void{
