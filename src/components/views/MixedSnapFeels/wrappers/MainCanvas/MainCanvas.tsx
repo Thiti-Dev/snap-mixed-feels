@@ -2,6 +2,8 @@ import React from 'react'
 import styles from './styles.module.scss'
 import GlobalContext from '../../../../../contexts/GlobalContext'
 
+import {Button} from 'react-materialize'
+
 import styled from 'styled-components'
 
 //
@@ -56,6 +58,23 @@ export default function MainCanvas() {
                     <p>{text}</p>
                 </TextInCanvasHolder>
             </CanvasHolder>
+
+            <Button
+                className={styles.export_button}
+                node="b"
+                small
+                waves="red"
+            >
+                Export as PNG
+            </Button>
+            <Button
+                className={styles.share_button}
+                node="c"
+                small
+                waves="amber"
+            >
+                Share on socials media
+            </Button>
         </div>
     )
 }
