@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-interface QuotesArray{
+export interface QuotesArray{
     _id:string;
     quoteText:string;
     quiteAuthor:string;
