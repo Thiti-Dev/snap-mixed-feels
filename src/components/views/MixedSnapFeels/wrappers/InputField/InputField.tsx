@@ -76,6 +76,7 @@ export default function InputField() {
               onChange={onInputChange}
               onKeyDown={isPressedEnterOnInput}
               value={inputText}
+              autoComplete="off"
             />
         </React.Fragment>
     )
